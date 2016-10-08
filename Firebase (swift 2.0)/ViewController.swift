@@ -9,7 +9,8 @@
 import UIKit
 import AnimatedTextInput
 import Firebase
-import AMSmoothAlert
+import SCLAlertView
+import MRProgress
 
 class ViewController: UIViewController {
     
@@ -79,6 +80,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func SignIn(sender: AnyObject) {
+        MRProgressOverlayView.showOverlayAddedTo(self.view, title: "Please Wait", mode: .IndeterminateSmallDefault, animated: true)
         self.emailField.resignFirstResponder()
         self.passwordField.resignFirstResponder()
         
@@ -123,19 +125,30 @@ class ViewController: UIViewController {
   
     @IBAction func createAcc(sender: AnyObject) {
         
+        MRProgressOverlayView.showOverlayAddedTo(self.view, title: "Please Wait", mode: .IndeterminateSmallDefault, animated: true)
+    
         self.emailField.resignFirstResponder()
         self.passwordField.resignFirstResponder()
         
-       if((emailField.text?.characters.count == 0) || (passwordField.text?.characters.count == 0))
+       if((emailField.text?.characters.count == 0) || (passwordField.text?.characters.count == 0) || !validateEmail(emailField.text!))
        {
-        if(emailField.text?.characters.count == 0)
+        
+        if(!validateEmail(emailField.text!))
         {
-            emailField.show(error: "Field can't be left blank")
+            showAlert("Error", message: "Enter your srm email only", error: true)
             
         }
-        if(passwordField.text?.characters.count == 0)
+        else
         {
-            passwordField.show(error:  "Field can't be left blank")
+            if(emailField.text?.characters.count == 0)
+            {
+                emailField.show(error: "Field can't be left blank")
+                
+            }
+            if(passwordField.text?.characters.count == 0)
+            {
+                passwordField.show(error:  "Field can't be left blank")
+            }
         }
        }
         else
@@ -171,9 +184,18 @@ class ViewController: UIViewController {
     
     func showAlert(title:String, message:String,error:Bool)
     {
+        MRProgressOverlayView.dismissAllOverlaysForView(self.view, animated: false)
         
-        let alert = AMSmoothAlertView(dropAlertWithTitle: title, andText: message, andCancelButton: true, forAlertType: AlertType.Failure)
-        alert.show()
+        if(error)
+        {
+            SCLAlertView().showError(title, subTitle: message)
+        }
+        else
+        {
+            SCLAlertView().showSuccess(title, subTitle: message)
+        }
+        
+       
     /*    let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         let action = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
         alert.addAction(action)
@@ -187,6 +209,13 @@ class ViewController: UIViewController {
         
         
         })*/
+    }
+    func validateEmail(enteredEmail:String) -> Bool {
+        
+        let emailFormat = "[A-Z0-9a-z._%+-]+@srmuniv.edu.in"
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+        return emailPredicate.evaluateWithObject(enteredEmail)
+        
     }
 
 }
