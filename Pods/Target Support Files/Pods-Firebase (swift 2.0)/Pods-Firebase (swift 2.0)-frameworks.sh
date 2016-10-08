@@ -85,11 +85,13 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AnimatedTextInput/AnimatedTextInput.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/LiquidFloatingActionButton/LiquidFloatingActionButton.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MRProgress/MRProgress.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SCLAlertView/SCLAlertView.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AnimatedTextInput/AnimatedTextInput.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/LiquidFloatingActionButton/LiquidFloatingActionButton.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MRProgress/MRProgress.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SCLAlertView/SCLAlertView.framework"
 fi

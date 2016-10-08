@@ -8,6 +8,7 @@ pod 'Firebase/Auth'
 pod 'AnimatedTextInput', '~> 0.3.0'
 pod 'SCLAlertView'
 pod 'MRProgress'
+pod ‘LiquidFloatingActionButton’
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 

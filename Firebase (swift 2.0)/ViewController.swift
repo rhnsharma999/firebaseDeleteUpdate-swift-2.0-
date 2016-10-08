@@ -14,6 +14,7 @@ import MRProgress
 
 class ViewController: UIViewController {
     
+    @IBOutlet var overlayCard: UIView!
     @IBOutlet var passwordField: AnimatedTextInput!
     
     @IBOutlet var signInButton: UIButton!
@@ -37,6 +38,14 @@ class ViewController: UIViewController {
     
     
 
+   
+   override func viewWillDisappear(animated: Bool) {
+  //      self.navigationController?.navigationBar.hidden = false
+        MRProgressOverlayView.dismissAllOverlaysForView(self.view, animated: false)
+    }
+    override func viewWillAppear(animated: Bool) {
+   //     self.navigationController?.navigationBar.hidden = true
+    }
     override func viewDidLayoutSubviews() {
         
         
@@ -59,6 +68,13 @@ class ViewController: UIViewController {
         
     }
     override func viewDidLoad() {
+        /*
+        overlayCard.layer.shadowColor = UIColor.blackColor().CGColor
+        overlayCard.layer.shadowRadius = 10
+        overlayCard.layer.shadowOffset = CGSize.zero
+        overlayCard.layer.shadowOpacity = 1*/
+        
+        
         emailField.placeHolderText = "Email"
         passwordField.placeHolderText = "Password"
         emailField.backgroundColor = UIColor.whiteColor()
@@ -80,7 +96,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func SignIn(sender: AnyObject) {
-        MRProgressOverlayView.showOverlayAddedTo(self.view, title: "Please Wait", mode: .IndeterminateSmallDefault, animated: true)
+        
         self.emailField.resignFirstResponder()
         self.passwordField.resignFirstResponder()
         
@@ -99,7 +115,7 @@ class ViewController: UIViewController {
         
         else
         {
-            
+            MRProgressOverlayView.showOverlayAddedTo(self.view, title: "Please Wait", mode: .IndeterminateSmallDefault, animated: true)
             FIRAuth.auth()?.signInWithEmail(emailField.text!, password: passwordField.text!) {(user,error) in
             
             
@@ -109,7 +125,7 @@ class ViewController: UIViewController {
                 }
                 else
                 {
-                    self.performSegueWithIdentifier("login", sender: self)
+                    self.performSegueWithIdentifier(Reusable.to_subscribed_classes, sender: self)
                     
                 }
                 
@@ -125,34 +141,36 @@ class ViewController: UIViewController {
   
     @IBAction func createAcc(sender: AnyObject) {
         
-        MRProgressOverlayView.showOverlayAddedTo(self.view, title: "Please Wait", mode: .IndeterminateSmallDefault, animated: true)
+       
     
         self.emailField.resignFirstResponder()
         self.passwordField.resignFirstResponder()
         
-       if((emailField.text?.characters.count == 0) || (passwordField.text?.characters.count == 0) || !validateEmail(emailField.text!))
+       if((emailField.text?.characters.count == 0) || (passwordField.text?.characters.count == 0))
        {
         
+        if(emailField.text?.characters.count == 0)
+        {
+            emailField.show(error: "Field can't be left blank")
+            
+        }
+        if(passwordField.text?.characters.count == 0)
+        {
+            passwordField.show(error:  "Field can't be left blank")
+        }
+        
+       }
+        else if(!validateEmail(emailField.text!))
+       {
         if(!validateEmail(emailField.text!))
         {
             showAlert("Error", message: "Enter your srm email only", error: true)
             
         }
-        else
-        {
-            if(emailField.text?.characters.count == 0)
-            {
-                emailField.show(error: "Field can't be left blank")
-                
-            }
-            if(passwordField.text?.characters.count == 0)
-            {
-                passwordField.show(error:  "Field can't be left blank")
-            }
-        }
        }
         else
         {
+             MRProgressOverlayView.showOverlayAddedTo(self.view, title: "Please Wait", mode: .IndeterminateSmallDefault, animated: true)
             FIRAuth.auth()?.createUserWithEmail(emailField.text!, password: passwordField.text!) { (user,error) in
                 
                 

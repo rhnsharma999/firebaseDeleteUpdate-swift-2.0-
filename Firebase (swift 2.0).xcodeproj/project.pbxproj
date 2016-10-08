@@ -26,6 +26,11 @@
 		DE2826081DA8E1A80044FD91 /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2826071DA8E1A80044FD91 /* secondViewController.swift */; };
 		DE2826091DA8E1A80044FD91 /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2826071DA8E1A80044FD91 /* secondViewController.swift */; };
 		DE28260A1DA8E1A80044FD91 /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2826071DA8E1A80044FD91 /* secondViewController.swift */; };
+		DE28260C1DA910760044FD91 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE28260B1DA910760044FD91 /* Cell.xib */; };
+		DE28260E1DA9123E0044FD91 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE28260D1DA9123E0044FD91 /* CardTableViewCell.swift */; };
+		DEB993591DA94D1600BBB7B9 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB993581DA94D1600BBB7B9 /* Reusable.swift */; };
+		DEB9935C1DA9503600BBB7B9 /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB9935B1DA9503600BBB7B9 /* MessagesTableViewCell.swift */; };
+		DEB9935E1DA950BF00BBB7B9 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB9935D1DA950BF00BBB7B9 /* MessagesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +75,11 @@
 		DE2825FF1DA8D9DD0044FD91 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE2826031DA8DE7D0044FD91 /* colorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = colorExtension.swift; sourceTree = "<group>"; };
 		DE2826071DA8E1A80044FD91 /* secondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
+		DE28260B1DA910760044FD91 /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
+		DE28260D1DA9123E0044FD91 /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		DEB993581DA94D1600BBB7B9 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		DEB9935B1DA9503600BBB7B9 /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
+		DEB9935D1DA950BF00BBB7B9 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		F1B00381FA9D7ACAA3744306 /* Pods-Firebase (swift 2.0)UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Firebase (swift 2.0)UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Firebase (swift 2.0)UITests/Pods-Firebase (swift 2.0)UITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				DE2825CE1DA8D8470044FD91 /* Firebase (swift 2.0) */,
+				DEB9935A1DA94D1D00BBB7B9 /* tools */,
 				DE2825E31DA8D8470044FD91 /* Firebase (swift 2.0)Tests */,
 				DE2825EE1DA8D8470044FD91 /* Firebase (swift 2.0)UITests */,
 				DE2825CD1DA8D8470044FD91 /* Products */,
@@ -153,8 +164,11 @@
 				DE2825D11DA8D8470044FD91 /* ViewController.swift */,
 				DE2825FF1DA8D9DD0044FD91 /* GoogleService-Info.plist */,
 				DE2825D31DA8D8470044FD91 /* Main.storyboard */,
+				DEB9935D1DA950BF00BBB7B9 /* MessagesViewController.swift */,
+				DEB9935B1DA9503600BBB7B9 /* MessagesTableViewCell.swift */,
+				DE28260B1DA910760044FD91 /* Cell.xib */,
+				DE28260D1DA9123E0044FD91 /* CardTableViewCell.swift */,
 				DE2826071DA8E1A80044FD91 /* secondViewController.swift */,
-				DE2826031DA8DE7D0044FD91 /* colorExtension.swift */,
 				DE2825D61DA8D8470044FD91 /* Assets.xcassets */,
 				DE2825D81DA8D8470044FD91 /* LaunchScreen.storyboard */,
 				DE2825DB1DA8D8470044FD91 /* Info.plist */,
@@ -178,6 +192,16 @@
 				DE2825F11DA8D8470044FD91 /* Info.plist */,
 			);
 			path = "Firebase (swift 2.0)UITests";
+			sourceTree = "<group>";
+		};
+		DEB9935A1DA94D1D00BBB7B9 /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				DEB993581DA94D1600BBB7B9 /* Reusable.swift */,
+				DE2826031DA8DE7D0044FD91 /* colorExtension.swift */,
+			);
+			name = tools;
+			path = "Firebase (swift 2.0)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE28260C1DA910760044FD91 /* Cell.xib in Resources */,
 				DE2825DA1DA8D8470044FD91 /* LaunchScreen.storyboard in Resources */,
 				DE2825D71DA8D8470044FD91 /* Assets.xcassets in Resources */,
 				DE2826001DA8D9DD0044FD91 /* GoogleService-Info.plist in Resources */,
@@ -448,9 +473,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEB993591DA94D1600BBB7B9 /* Reusable.swift in Sources */,
+				DE28260E1DA9123E0044FD91 /* CardTableViewCell.swift in Sources */,
 				DE2826081DA8E1A80044FD91 /* secondViewController.swift in Sources */,
 				DE2826041DA8DE7D0044FD91 /* colorExtension.swift in Sources */,
 				DE2825D21DA8D8470044FD91 /* ViewController.swift in Sources */,
+				DEB9935C1DA9503600BBB7B9 /* MessagesTableViewCell.swift in Sources */,
+				DEB9935E1DA950BF00BBB7B9 /* MessagesViewController.swift in Sources */,
 				DE2825D01DA8D8470044FD91 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,6 +581,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -589,6 +619,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 2.3;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

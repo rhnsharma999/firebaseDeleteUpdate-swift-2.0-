@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '51D08DC6E197BE8D027ACAFAF03C640E'
-               BlueprintName = 'SCLAlertView'
+               BlueprintIdentifier = '4BCE15B65BE1423E31A139A48360119E'
+               BlueprintName = 'LiquidFloatingActionButton'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SCLAlertView.framework'>
+               BuildableName = 'LiquidFloatingActionButton.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
